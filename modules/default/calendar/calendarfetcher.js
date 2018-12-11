@@ -120,6 +120,10 @@ var CalendarFetcher = function(url, reloadInterval, excludedEvents, maximumEntri
 					var excluded = false,
 						dateFilter = null;
 
+					if (startDate < moment("1970-01-01")) {
+						excluded = true;
+					}
+
 					for (var f in excludedEvents) {
 						var filter = excludedEvents[f],
 							testTitle = title.toLowerCase(),
